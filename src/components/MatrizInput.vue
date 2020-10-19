@@ -1,8 +1,8 @@
 <template>
 	<div class="Matriz-Input">
 		<h3 class="item">{{title}}</h3>
-		<Matriz-Form class="item"/>
-		<Matriz-Tripleta class="item"/>
+		<Matriz-Form class="item" @cambio-matriz="cambioMatriz"/>
+		<Matriz-Tripleta class="item" v-bind:tripletas="tripletas"/>
 	</div>
 </template>
 
@@ -15,13 +15,16 @@ export default {
 	name: 'Matriz-Input',
 	props: {
 		title: String,
-		size: Number,
-		matriz: Array,
-		verMatrizForm: Boolean
+		tripletas: Number[[]]
 	},
 	components: {
 		MatrizForm,
 		MatrizTripleta
+	},
+	methods: {
+		cambioMatriz: function(e) {
+			this.$emit('cambio-matriz', e)
+		}
 	}
 }
 </script>

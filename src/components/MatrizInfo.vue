@@ -1,8 +1,8 @@
 <template>
     <div class="Matriz-Info">
 		<h3 class="item">{{title}}</h3>
-        <Matriz class="item"/>
-        <Matriz-Tripleta class="item"/>
+        <Matriz class="item" v-bind:matriz="matriz"/>
+        <Matriz-Tripleta class="item" v-bind:tripletas="tripletas"/>
     </div>
 </template>
 
@@ -14,7 +14,9 @@ import MatrizTripleta from './MatrizTripleta.vue'
 export default {
     name: 'Matriz-Info',
     props: {
-        title: String
+        title: String,
+		matriz: Number[[]],
+		tripletas: Number[[]]
     },
     components:{
         Matriz,
